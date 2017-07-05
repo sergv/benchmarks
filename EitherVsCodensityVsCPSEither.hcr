@@ -1,0 +1,1320 @@
+==================== Tidy Core ====================
+Result size of Tidy Core = {terms: 2,399, types: 4,226, coercions: 1,367}
+
+main10 :: [Char]
+main10 = unpackCString# "Codensity"#
+
+main13 :: [Char]
+main13 = unpackCString# "EitherChurchT"#
+
+main16 :: [Char]
+main16 = unpackCString# "EitherChurch"#
+
+main19 :: [Char]
+main19 = unpackCString# "ExceptT"#
+
+main22 :: [Char]
+main22 = unpackCString# "Either"#
+
+main23 :: [Char]
+main23 = unpackCString# "either-vs-cps.html"#
+
+main40 :: [Char]
+main40 = unpackCString# "Results:"#
+
+lvl :: forall a3. a3 -> a3
+lvl = \ (@ a29) (tpl :: a29) -> tpl
+
+assertSmallerThanExceptT1 :: Either [Char] ()
+assertSmallerThanExceptT1 = Right ()
+
+$fFoldableTree7 :: forall a3. a3 -> (Int -> Int) -> Int -> Int
+$fFoldableTree7 = \ (@ a29) _ (k :: Int -> Int) (z :: Int) -> case z of _ { I# x1 -> k (I# (+# x1 1)) }
+
+lvl1 :: forall e a. e -> forall r. (a -> Either e r) -> Either e r
+lvl1 = \ (@ e) (@ a29) (e1 :: e) (@ r) _ -> Left e1
+
+lvl2 :: forall (m :: * -> *) a. [Char] -> Codensity m a
+lvl2 = \ (@ (m :: * -> *)) (@ a29) (eta :: [Char]) -> error eta
+
+lvl3 :: forall (m :: * -> *) a b. Codensity m a -> (a -> Codensity m b) -> forall r. (b -> m r) -> m r
+lvl3 =
+  \ (@ (m :: * -> *)) (@ a29) (@ b) (ds :: Codensity m a29) (m1 :: a29 -> Codensity m b) (@ r) (k :: b -> m r) ->
+    (ds `cast` ...) (\ (x :: a29) -> ((m1 x) `cast` ...) k)
+
+lvl4 :: forall (m :: * -> *) a. a -> forall r. (a -> m r) -> m r
+lvl4 = \ (@ (m :: * -> *)) (@ a29) (x :: a29) (@ r) (k :: a29 -> m r) -> k x
+
+lvl5 :: forall e (m :: * -> *) a. EitherChurchT m e a -> (e -> EitherChurchT m e a) -> forall r. (e -> m r) -> (a -> m r) -> m r
+lvl5 =
+  \ (@ e)
+    (@ (m :: * -> *))
+    (@ a29)
+    (ds :: EitherChurchT m e a29)
+    (handler :: e -> EitherChurchT m e a29)
+    (@ r)
+    (ek :: e -> m r)
+    (sk :: a29 -> m r) ->
+    (ds `cast` ...) (\ (e1 :: e) -> ((handler e1) `cast` ...) ek sk) sk
+
+lvl6 :: forall e (m :: * -> *) a. e -> forall r. (e -> m r) -> (a -> m r) -> m r
+lvl6 = \ (@ e) (@ (m :: * -> *)) (@ a29) (e1 :: e) (@ r) (ek :: e -> m r) _ -> ek e1
+
+lvl7 :: forall (m :: * -> *) e a. [Char] -> EitherChurchT m e a
+lvl7 = \ (@ (m :: * -> *)) (@ e) (@ a29) (eta :: [Char]) -> error eta
+
+lvl8 :: forall (m :: * -> *) e a b. EitherChurchT m e a -> (a -> EitherChurchT m e b) -> forall r. (e -> m r) -> (b -> m r) -> m r
+lvl8 =
+  \ (@ (m :: * -> *))
+    (@ e)
+    (@ a29)
+    (@ b)
+    (ds :: EitherChurchT m e a29)
+    (m1 :: a29 -> EitherChurchT m e b)
+    (@ r)
+    (ek :: e -> m r)
+    (sk :: b -> m r) ->
+    (ds `cast` ...) ek (\ (x :: a29) -> ((m1 x) `cast` ...) ek sk)
+
+lvl9 :: forall (m :: * -> *) e a. a -> forall r. (e -> m r) -> (a -> m r) -> m r
+lvl9 = \ (@ (m :: * -> *)) (@ e) (@ a29) (x :: a29) (@ r) _ (sk :: a29 -> m r) -> sk x
+
+lvl10 :: forall e a. EitherChurch e a -> (e -> EitherChurch e a) -> forall r. (e -> r) -> (a -> r) -> r
+lvl10 =
+  \ (@ e) (@ a29) (ds :: EitherChurch e a29) (handler :: e -> EitherChurch e a29) (@ r) (ek :: e -> r) (sk :: a29 -> r) ->
+    (ds `cast` ...) (\ (e1 :: e) -> ((handler e1) `cast` ...) ek sk) sk
+
+lvl11 :: forall e a. e -> forall r. (e -> r) -> (a -> r) -> r
+lvl11 = \ (@ e) (@ a29) (e1 :: e) (@ r) (ek :: e -> r) _ -> ek e1
+
+lvl12 :: forall e a. [Char] -> EitherChurch e a
+lvl12 = \ (@ e) (@ a29) (eta :: [Char]) -> error eta
+
+lvl13 :: forall e a b. EitherChurch e a -> (a -> EitherChurch e b) -> forall r. (e -> r) -> (b -> r) -> r
+lvl13 =
+  \ (@ e) (@ a29) (@ b) (ds :: EitherChurch e a29) (m :: a29 -> EitherChurch e b) (@ r) (ek :: e -> r) (sk :: b -> r) ->
+    (ds `cast` ...) ek (\ (x :: a29) -> ((m x) `cast` ...) ek sk)
+
+lvl14 :: forall e a. a -> forall r. (e -> r) -> (a -> r) -> r
+lvl14 = \ (@ e) (@ a29) (x :: a29) (@ r) _ (sk :: a29 -> r) -> sk x
+
+lvl15 :: [Char]
+lvl15 = unpackCString# "foldl1: empty structure"#
+
+lvl16 :: [Char]
+lvl16 = unpackCString# "foldr1: empty structure"#
+
+lvl17 :: [Char]
+lvl17 = unpackCString# "maximum: empty structure"#
+
+lvl18 :: [Char]
+lvl18 = unpackCString# "minimum: empty structure"#
+
+main27 :: [Char]
+main27 = : shows6 ([])
+
+Rec {
+fibTree_$s$wa :: Int# -> Int# -> (# Tree Int, Int #)
+fibTree_$s$wa =
+  \ (sc :: Int#) (sc1 :: Int#) ->
+    case sc of ds {
+      __DEFAULT ->
+        let {
+          a29 :: Int#
+          a29 = -# ds 1 } in
+        let {
+          a30 :: Identity (Tree Int, Int)
+          a30 = case fibTree_$s$wa a29 (+# sc1 1) of _ { (# ww1, ww2 #) -> (ww1, ww2) `cast` ... } } in
+        let {
+          a31 :: Identity (Tree Int, Int)
+          a31 = case $wa (-# a29 1) (case a30 `cast` ... of _ { (a32, s') -> s' }) of _ { (# ww1, ww2 #) -> (ww1, ww2) `cast` ... } } in
+        (# Node (I# sc1) (case a30 `cast` ... of _ { (a32, s'1) -> a32 }) (case a31 `cast` ... of _ { (a32, s'1) -> a32 }),
+           case a31 `cast` ... of _ { (a32, s') -> s' } #);
+      0 -> (# Leaf, I# sc1 #);
+      1 -> (# Leaf, I# sc1 #)
+    }
+
+$wa :: Int# -> Int -> (# Tree Int, Int #)
+$wa =
+  \ (ww :: Int#) (w :: Int) ->
+    case ww of ds {
+      __DEFAULT ->
+        let {
+          a29 :: Int#
+          a29 = -# ds 1 } in
+        let {
+          a30 :: Identity (Tree Int, Int)
+          a30 = case $wa a29 (case w of _ { I# x -> I# (+# x 1) }) of _ { (# ww2, ww3 #) -> (ww2, ww3) `cast` ... } } in
+        let {
+          a31 :: Identity (Tree Int, Int)
+          a31 = case $wa (-# a29 1) (case a30 `cast` ... of _ { (a32, s') -> s' }) of _ { (# ww2, ww3 #) -> (ww2, ww3) `cast` ... } } in
+        (# Node w (case a30 `cast` ... of _ { (a32, s'1) -> a32 }) (case a31 `cast` ... of _ { (a32, s'1) -> a32 }),
+           case a31 `cast` ... of _ { (a32, s') -> s' } #);
+      0 -> (# Leaf, w #);
+      1 -> (# Leaf, w #)
+    }
+end Rec }
+
+$fMonadErroreCodensity3 :: forall e. Monad (Codensity (Either e)) => forall a. e -> forall r. (a -> Either e r) -> Either e r
+$fMonadErroreCodensity3 = \ (@ e) _ (@ a29) (e1 :: e) (@ r) _ -> Left e1
+
+$fFunctorCodensity1 :: forall (m :: * -> *) a b. a -> Codensity m b -> forall r. (a -> m r) -> m r
+$fFunctorCodensity1 =
+  \ (@ (m :: * -> *)) (@ a29) (@ b) (eta :: a29) (eta1 :: Codensity m b) (@ r) (eta2 :: a29 -> m r) ->
+    let {
+      lvl27 :: m r
+      lvl27 = eta2 eta } in
+    (eta1 `cast` ...) (\ _ -> lvl27)
+
+$fFunctorEitherChurchT1 :: forall (m :: * -> *) e a b. a -> EitherChurchT m e b -> forall r. (e -> m r) -> (a -> m r) -> m r
+$fFunctorEitherChurchT1 =
+  \ (@ (m :: * -> *)) (@ e) (@ a29) (@ b) (eta :: a29) (eta1 :: EitherChurchT m e b) (@ r) (eta2 :: e -> m r) (eta3 :: a29 -> m r) ->
+    let {
+      lvl27 :: m r
+      lvl27 = eta3 eta } in
+    (eta1 `cast` ...) eta2 (\ _ -> lvl27)
+
+$fFunctorEitherChurch1 :: forall e a b. a -> EitherChurch e b -> forall r. (e -> r) -> (a -> r) -> r
+$fFunctorEitherChurch1 =
+  \ (@ e) (@ a29) (@ b) (eta :: a29) (eta1 :: EitherChurch e b) (@ r) (eta2 :: e -> r) (eta3 :: a29 -> r) ->
+    let {
+      lvl27 :: r
+      lvl27 = eta3 eta } in
+    (eta1 `cast` ...) eta2 (\ _ -> lvl27)
+
+fibTree2 :: Int -> Int -> Identity (Tree Int, Int)
+fibTree2 = \ (w :: Int) (w1 :: Int) -> case w of _ { I# ww1 -> case $wa ww1 w1 of _ { (# ww3, ww4 #) -> (ww3, ww4) `cast` ... } }
+
+assertSmallerThanEitherChurch1 :: forall r. ([Char] -> r) -> (() -> r) -> r
+assertSmallerThanEitherChurch1 = \ (@ r) _ (sk :: () -> r) -> sk ()
+
+assertSmallerThanEitherChurchT1 :: forall r. ([Char] -> Identity r) -> (() -> Identity r) -> Identity r
+assertSmallerThanEitherChurchT1 = \ (@ r) _ (sk :: () -> Identity r) -> sk ()
+
+assertSmallerThanCodensity1 :: forall r. (() -> Either [Char] r) -> Either [Char] r
+assertSmallerThanCodensity1 = \ (@ r) (k :: () -> Either [Char] r) -> k ()
+
+$fMonadErroreCodensity1
+  :: forall e.
+     Monad (Codensity (Either e)) =>
+     forall a. Codensity (Either e) a -> (e -> Codensity (Either e) a) -> forall r. (a -> Either e r) -> Either e r
+$fMonadErroreCodensity1 =
+  \ (@ e) _ (@ a29) (ds :: Codensity (Either e) a29) (handler :: e -> Codensity (Either e) a29) (@ r) (k :: a29 -> Either e r) ->
+    case (ds `cast` ...) k of wild {
+      Left e1 -> ((handler e1) `cast` ...) k;
+      Right x -> wild
+    }
+
+$fMonadErroreEitherChurchT3
+  :: forall e (m :: * -> *). Monad (EitherChurchT m e) => forall a. e -> forall r. (e -> m r) -> (a -> m r) -> m r
+$fMonadErroreEitherChurchT3 = \ (@ e) (@ (m :: * -> *)) _ (@ a29) (e1 :: e) (@ r) (ek :: e -> m r) _ -> ek e1
+
+$fMonadErroreEitherChurchT1
+  :: forall e (m :: * -> *).
+     Monad (EitherChurchT m e) =>
+     forall a. EitherChurchT m e a -> (e -> EitherChurchT m e a) -> forall r. (e -> m r) -> (a -> m r) -> m r
+$fMonadErroreEitherChurchT1 =
+  \ (@ e)
+    (@ (m :: * -> *))
+    _
+    (@ a29)
+    (ds :: EitherChurchT m e a29)
+    (handler :: e -> EitherChurchT m e a29)
+    (@ r)
+    (ek :: e -> m r)
+    (sk :: a29 -> m r) ->
+    (ds `cast` ...) (\ (e1 :: e) -> ((handler e1) `cast` ...) ek sk) sk
+
+$fMonadErroreEitherChurch3 :: forall e. Monad (EitherChurch e) => forall a. e -> forall r. (e -> r) -> (a -> r) -> r
+$fMonadErroreEitherChurch3 = \ (@ e) _ (@ a29) (e1 :: e) (@ r) (ek :: e -> r) _ -> ek e1
+
+$fMonadErroreEitherChurch1
+  :: forall e. Monad (EitherChurch e) => forall a. EitherChurch e a -> (e -> EitherChurch e a) -> forall r. (e -> r) -> (a -> r) -> r
+$fMonadErroreEitherChurch1 =
+  \ (@ e) _ (@ a29) (ds :: EitherChurch e a29) (handler :: e -> EitherChurch e a29) (@ r) (ek :: e -> r) (sk :: a29 -> r) ->
+    (ds `cast` ...) (\ (e1 :: e) -> ((handler e1) `cast` ...) ek sk) sk
+
+$fFoldableTree6 :: Int
+$fFoldableTree6 = I# 0
+
+fibTree1 :: Int -> Identity (Tree Int, Int)
+fibTree1 =
+  \ (height :: Int) -> case height of _ { I# ww1 -> case fibTree_$s$wa ww1 0 of _ { (# ww3, ww4 #) -> (ww3, ww4) `cast` ... } }
+
+main9 :: Identity (Tree Int, Int)
+main9 = case fibTree_$s$wa 30 0 of _ { (# ww1, ww2 #) -> (ww1, ww2) `cast` ... }
+
+$fFoldableTree8 :: forall a3. a3 -> Bool -> Bool
+$fFoldableTree8 = \ (@ a29) _ _ -> False
+
+$fMonadCodensity3
+  :: forall (m :: * -> *).
+     Applicative (Codensity m) =>
+     forall a b. Codensity m a -> (a -> Codensity m b) -> forall r. (b -> m r) -> m r
+$fMonadCodensity3 =
+  \ (@ (m :: * -> *)) _ (@ a29) (@ b) (ds :: Codensity m a29) (m1 :: a29 -> Codensity m b) (@ r) (k :: b -> m r) ->
+    (ds `cast` ...) (\ (x :: a29) -> ((m1 x) `cast` ...) k)
+
+$fApplicativeCodensity6 :: forall (m :: * -> *). Functor (Codensity m) => forall a. a -> forall r. (a -> m r) -> m r
+$fApplicativeCodensity6 = \ (@ (m :: * -> *)) _ (@ a29) (x :: a29) (@ r) (k :: a29 -> m r) -> k x
+
+$fApplicativeCodensity5
+  :: forall (m :: * -> *). Functor (Codensity m) => forall a b. Codensity m (a -> b) -> Codensity m a -> forall r. (b -> m r) -> m r
+$fApplicativeCodensity5 =
+  \ (@ (m :: * -> *)) _ (@ a29) (@ b) (ds :: Codensity m (a29 -> b)) (ds1 :: Codensity m a29) (@ r) (k :: b -> m r) ->
+    (ds `cast` ...) (\ (h :: a29 -> b) -> (ds1 `cast` ...) (\ (x :: a29) -> k (h x)))
+
+$fFunctorCodensity2 :: forall (m :: * -> *) a b. (a -> b) -> Codensity m a -> forall r. (b -> m r) -> m r
+$fFunctorCodensity2 =
+  \ (@ (m :: * -> *)) (@ a29) (@ b) (f :: a29 -> b) (ds :: Codensity m a29) (@ r) (k :: b -> m r) -> (ds `cast` ...) (. k f)
+
+$fMonadEitherChurchT3
+  :: forall (m :: * -> *) e.
+     Applicative (EitherChurchT m e) =>
+     forall a b. EitherChurchT m e a -> (a -> EitherChurchT m e b) -> forall r. (e -> m r) -> (b -> m r) -> m r
+$fMonadEitherChurchT3 =
+  \ (@ (m :: * -> *))
+    (@ e)
+    _
+    (@ a29)
+    (@ b)
+    (ds :: EitherChurchT m e a29)
+    (m1 :: a29 -> EitherChurchT m e b)
+    (@ r)
+    (ek :: e -> m r)
+    (sk :: b -> m r) ->
+    (ds `cast` ...) ek (\ (x :: a29) -> ((m1 x) `cast` ...) ek sk)
+
+$fApplicativeEitherChurchT6
+  :: forall (m :: * -> *) e. Functor (EitherChurchT m e) => forall a. a -> forall r. (e -> m r) -> (a -> m r) -> m r
+$fApplicativeEitherChurchT6 = \ (@ (m :: * -> *)) (@ e) _ (@ a29) (x :: a29) (@ r) _ (sk :: a29 -> m r) -> sk x
+
+$fApplicativeEitherChurchT5
+  :: forall (m :: * -> *) e.
+     Functor (EitherChurchT m e) =>
+     forall a b. EitherChurchT m e (a -> b) -> EitherChurchT m e a -> forall r. (e -> m r) -> (b -> m r) -> m r
+$fApplicativeEitherChurchT5 =
+  \ (@ (m :: * -> *))
+    (@ e)
+    _
+    (@ a29)
+    (@ b)
+    (ds :: EitherChurchT m e (a29 -> b))
+    (ds1 :: EitherChurchT m e a29)
+    (@ r)
+    (ek :: e -> m r)
+    (sk :: b -> m r) ->
+    (ds `cast` ...) ek (\ (h :: a29 -> b) -> (ds1 `cast` ...) ek (\ (x :: a29) -> sk (h x)))
+
+$fFunctorEitherChurchT2 :: forall (m :: * -> *) e a b. (a -> b) -> EitherChurchT m e a -> forall r. (e -> m r) -> (b -> m r) -> m r
+$fFunctorEitherChurchT2 =
+  \ (@ (m :: * -> *)) (@ e) (@ a29) (@ b) (f :: a29 -> b) (ds :: EitherChurchT m e a29) (@ r) (ek :: e -> m r) (sk :: b -> m r) ->
+    (ds `cast` ...) ek (. sk f)
+
+$fMonadEitherChurch3
+  :: forall e.
+     Applicative (EitherChurch e) =>
+     forall a b. EitherChurch e a -> (a -> EitherChurch e b) -> forall r. (e -> r) -> (b -> r) -> r
+$fMonadEitherChurch3 =
+  \ (@ e) _ (@ a29) (@ b) (ds :: EitherChurch e a29) (m :: a29 -> EitherChurch e b) (@ r) (ek :: e -> r) (sk :: b -> r) ->
+    (ds `cast` ...) ek (\ (x :: a29) -> ((m x) `cast` ...) ek sk)
+
+$fApplicativeEitherChurch6 :: forall e. Functor (EitherChurch e) => forall a. a -> forall r. (e -> r) -> (a -> r) -> r
+$fApplicativeEitherChurch6 = \ (@ e) _ (@ a29) (x :: a29) (@ r) _ (sk :: a29 -> r) -> sk x
+
+$fApplicativeEitherChurch5
+  :: forall e.
+     Functor (EitherChurch e) =>
+     forall a b. EitherChurch e (a -> b) -> EitherChurch e a -> forall r. (e -> r) -> (b -> r) -> r
+$fApplicativeEitherChurch5 =
+  \ (@ e) _ (@ a29) (@ b) (ds :: EitherChurch e (a29 -> b)) (ds1 :: EitherChurch e a29) (@ r) (ek :: e -> r) (sk :: b -> r) ->
+    (ds `cast` ...) ek (\ (h :: a29 -> b) -> (ds1 `cast` ...) ek (\ (x :: a29) -> sk (h x)))
+
+$fFunctorEitherChurch2 :: forall e a b. (a -> b) -> EitherChurch e a -> forall r. (e -> r) -> (b -> r) -> r
+$fFunctorEitherChurch2 =
+  \ (@ e) (@ a29) (@ b) (f :: a29 -> b) (ds :: EitherChurch e a29) (@ r) (ek :: e -> r) (sk :: b -> r) -> (ds `cast` ...) ek (. sk f)
+
+$fFoldableTree3 :: forall a3. a3
+$fFoldableTree3 = \ (@ a29) -> error lvl18
+
+$fFoldableTree4 :: forall a3. a3
+$fFoldableTree4 = \ (@ a29) -> error lvl17
+
+$fFoldableTree11 :: forall a3. a3
+$fFoldableTree11 = \ (@ a29) -> error lvl16
+
+$fFoldableTree9 :: forall a3. a3
+$fFoldableTree9 = \ (@ a29) -> error lvl15
+
+$fFoldableTree10 :: forall b. Monoid (Dual (Endo b))
+$fFoldableTree10 = \ (@ b) -> $fMonoidDual ($fMonoidEndo)
+
+fibTree :: Int -> (Tree Int, Int)
+fibTree = fibTree1 `cast` ...
+
+runCodensity :: forall (m :: * -> *) a r. Codensity m a -> (a -> m r) -> m r
+runCodensity = \ (@ (m :: * -> *)) (@ a29) (@ r) (ds :: Codensity m a29) -> (ds `cast` ...)
+
+runEitherChurch :: forall e a r. EitherChurch e a -> (e -> r) -> (a -> r) -> r
+runEitherChurch = \ (@ e) (@ a29) (@ r) (ds :: EitherChurch e a29) -> (ds `cast` ...)
+
+runEitherChurchT :: forall (m :: * -> *) e a r. EitherChurchT m e a -> (e -> m r) -> (a -> m r) -> m r
+runEitherChurchT = \ (@ (m :: * -> *)) (@ e) (@ a29) (@ r) (ds :: EitherChurchT m e a29) -> (ds `cast` ...)
+
+$fFunctorEitherChurch_$c<$ :: forall e a b. a -> EitherChurch e b -> EitherChurch e a
+$fFunctorEitherChurch_$c<$ = $fFunctorEitherChurch1 `cast` ...
+
+$fFunctorEitherChurch_$cfmap :: forall e a b. (a -> b) -> EitherChurch e a -> EitherChurch e b
+$fFunctorEitherChurch_$cfmap = $fFunctorEitherChurch2 `cast` ...
+
+$fFunctorEitherChurch :: forall e. Functor (EitherChurch e)
+$fFunctorEitherChurch = \ (@ e) -> D:Functor (($fFunctorEitherChurch2) `cast` ...) (($fFunctorEitherChurch1) `cast` ...)
+
+$fApplicativeEitherChurch_$c<*
+  :: forall e. Functor (EitherChurch e) => forall a b. EitherChurch e a -> EitherChurch e b -> EitherChurch e a
+$fApplicativeEitherChurch_$c<* =
+  \ (@ e) ($dFunctor :: Functor (EitherChurch e)) (@ a29) (@ b) (eta :: EitherChurch e a29) (eta1 :: EitherChurch e b) ->
+    let {
+      ds :: EitherChurch e (b -> a29)
+      ds = fmap $dFunctor (const) eta } in
+    (\ (@ r) (ek :: e -> r) (sk :: a29 -> r) -> (ds `cast` ...) ek (\ (h :: b -> a29) -> (eta1 `cast` ...) ek (\ (x :: b) -> sk (h x))))
+    `cast` ...
+
+$fApplicativeEitherChurch_$c*>
+  :: forall e. Functor (EitherChurch e) => forall a b. EitherChurch e a -> EitherChurch e b -> EitherChurch e b
+$fApplicativeEitherChurch_$c*> =
+  \ (@ e) ($dFunctor :: Functor (EitherChurch e)) (@ a29) (@ b) (eta :: EitherChurch e a29) (eta1 :: EitherChurch e b) ->
+    let {
+      ds :: EitherChurch e (b -> b)
+      ds = <$ $dFunctor (id) eta } in
+    (\ (@ r) (ek :: e -> r) (sk :: b -> r) -> (ds `cast` ...) ek (\ (h :: b -> b) -> (eta1 `cast` ...) ek (\ (x :: b) -> sk (h x))))
+    `cast` ...
+
+$fApplicativeEitherChurch_$c<*>
+  :: forall e. Functor (EitherChurch e) => forall a b. EitherChurch e (a -> b) -> EitherChurch e a -> EitherChurch e b
+$fApplicativeEitherChurch_$c<*> = $fApplicativeEitherChurch5 `cast` ...
+
+$fApplicativeEitherChurch_$cpure :: forall e. Functor (EitherChurch e) => forall a. a -> EitherChurch e a
+$fApplicativeEitherChurch_$cpure = $fApplicativeEitherChurch6 `cast` ...
+
+$fApplicativeEitherChurch :: forall e. Functor (EitherChurch e) => Applicative (EitherChurch e)
+$fApplicativeEitherChurch =
+  \ (@ e) ($dFunctor :: Functor (EitherChurch e)) ->
+    D:Applicative
+      $dFunctor
+      ((lvl14) `cast` ...)
+      (($fApplicativeEitherChurch5 $dFunctor) `cast` ...)
+      ($fApplicativeEitherChurch_$c*> $dFunctor)
+      ($fApplicativeEitherChurch_$c<* $dFunctor)
+
+$fMonadEitherChurch_$cfail :: forall e. Applicative (EitherChurch e) => forall a. String -> EitherChurch e a
+$fMonadEitherChurch_$cfail = \ (@ e) _ (@ a29) (eta :: [Char]) -> error eta
+
+$fMonadEitherChurch_$creturn :: forall e. Applicative (EitherChurch e) => forall a. a -> EitherChurch e a
+$fMonadEitherChurch_$creturn = \ (@ e) ($dApplicative :: Applicative (EitherChurch e)) (@ a29) -> pure $dApplicative
+
+$fMonadEitherChurch_$c>>=
+  :: forall e. Applicative (EitherChurch e) => forall a b. EitherChurch e a -> (a -> EitherChurch e b) -> EitherChurch e b
+$fMonadEitherChurch_$c>>= = $fMonadEitherChurch3 `cast` ...
+
+Rec {
+$fMonadEitherChurch_$c>>
+  :: forall e. Applicative (EitherChurch e) => forall a b. EitherChurch e a -> EitherChurch e b -> EitherChurch e b
+$fMonadEitherChurch_$c>> =
+  \ (@ e) ($dApplicative :: Applicative (EitherChurch e)) (@ a29) (@ b) (eta :: EitherChurch e a29) (eta1 :: EitherChurch e b) ->
+    >>= ($fMonadEitherChurch $dApplicative) eta (\ _ -> eta1)
+
+$fMonadEitherChurch :: forall e. Applicative (EitherChurch e) => Monad (EitherChurch e)
+$fMonadEitherChurch =
+  \ (@ e) ($dApplicative :: Applicative (EitherChurch e)) ->
+    D:Monad $dApplicative ((lvl13) `cast` ...) ($fMonadEitherChurch_$c>> $dApplicative) (\ (@ a29) -> pure $dApplicative) (lvl12)
+end Rec }
+
+$fMonadErroreEitherChurch_$ccatchError
+  :: forall e. Monad (EitherChurch e) => forall a. EitherChurch e a -> (e -> EitherChurch e a) -> EitherChurch e a
+$fMonadErroreEitherChurch_$ccatchError = $fMonadErroreEitherChurch1 `cast` ...
+
+$fMonadErroreEitherChurch_$cthrowError :: forall e. Monad (EitherChurch e) => forall a. e -> EitherChurch e a
+$fMonadErroreEitherChurch_$cthrowError = $fMonadErroreEitherChurch3 `cast` ...
+
+$fMonadErroreEitherChurch :: forall e. Monad (EitherChurch e) => MonadError e (EitherChurch e)
+$fMonadErroreEitherChurch =
+  \ (@ e) ($dMonad :: Monad (EitherChurch e)) -> D:MonadError $dMonad ((lvl11) `cast` ...) ((lvl10) `cast` ...)
+
+$fFunctorEitherChurchT_$c<$ :: forall (m :: * -> *) e a b. a -> EitherChurchT m e b -> EitherChurchT m e a
+$fFunctorEitherChurchT_$c<$ = $fFunctorEitherChurchT1 `cast` ...
+
+$fFunctorEitherChurchT_$cfmap :: forall (m :: * -> *) e a b. (a -> b) -> EitherChurchT m e a -> EitherChurchT m e b
+$fFunctorEitherChurchT_$cfmap = $fFunctorEitherChurchT2 `cast` ...
+
+$fFunctorEitherChurchT :: forall (m :: * -> *) e. Functor (EitherChurchT m e)
+$fFunctorEitherChurchT =
+  \ (@ (m :: * -> *)) (@ e) -> D:Functor (($fFunctorEitherChurchT2) `cast` ...) (($fFunctorEitherChurchT1) `cast` ...)
+
+$fApplicativeEitherChurchT_$c<*
+  :: forall (m :: * -> *) e.
+     Functor (EitherChurchT m e) =>
+     forall a b. EitherChurchT m e a -> EitherChurchT m e b -> EitherChurchT m e a
+$fApplicativeEitherChurchT_$c<* =
+  \ (@ (m :: * -> *))
+    (@ e)
+    ($dFunctor :: Functor (EitherChurchT m e))
+    (@ a29)
+    (@ b)
+    (eta :: EitherChurchT m e a29)
+    (eta1 :: EitherChurchT m e b) ->
+    let {
+      ds :: EitherChurchT m e (b -> a29)
+      ds = fmap $dFunctor (const) eta } in
+    (\ (@ r) (ek :: e -> m r) (sk :: a29 -> m r) ->
+       (ds `cast` ...) ek (\ (h :: b -> a29) -> (eta1 `cast` ...) ek (\ (x :: b) -> sk (h x))))
+    `cast` ...
+
+$fApplicativeEitherChurchT_$c*>
+  :: forall (m :: * -> *) e.
+     Functor (EitherChurchT m e) =>
+     forall a b. EitherChurchT m e a -> EitherChurchT m e b -> EitherChurchT m e b
+$fApplicativeEitherChurchT_$c*> =
+  \ (@ (m :: * -> *))
+    (@ e)
+    ($dFunctor :: Functor (EitherChurchT m e))
+    (@ a29)
+    (@ b)
+    (eta :: EitherChurchT m e a29)
+    (eta1 :: EitherChurchT m e b) ->
+    let {
+      ds :: EitherChurchT m e (b -> b)
+      ds = <$ $dFunctor (id) eta } in
+    (\ (@ r) (ek :: e -> m r) (sk :: b -> m r) -> (ds `cast` ...) ek (\ (h :: b -> b) -> (eta1 `cast` ...) ek (\ (x :: b) -> sk (h x))))
+    `cast` ...
+
+$fApplicativeEitherChurchT_$c<*>
+  :: forall (m :: * -> *) e.
+     Functor (EitherChurchT m e) =>
+     forall a b. EitherChurchT m e (a -> b) -> EitherChurchT m e a -> EitherChurchT m e b
+$fApplicativeEitherChurchT_$c<*> = $fApplicativeEitherChurchT5 `cast` ...
+
+$fApplicativeEitherChurchT_$cpure :: forall (m :: * -> *) e. Functor (EitherChurchT m e) => forall a. a -> EitherChurchT m e a
+$fApplicativeEitherChurchT_$cpure = $fApplicativeEitherChurchT6 `cast` ...
+
+$fApplicativeEitherChurchT :: forall (m :: * -> *) e. Functor (EitherChurchT m e) => Applicative (EitherChurchT m e)
+$fApplicativeEitherChurchT =
+  \ (@ (m :: * -> *)) (@ e) ($dFunctor :: Functor (EitherChurchT m e)) ->
+    D:Applicative
+      $dFunctor
+      ((lvl9) `cast` ...)
+      (($fApplicativeEitherChurchT5 $dFunctor) `cast` ...)
+      ($fApplicativeEitherChurchT_$c*> $dFunctor)
+      ($fApplicativeEitherChurchT_$c<* $dFunctor)
+
+$fMonadEitherChurchT_$cfail :: forall (m :: * -> *) e. Applicative (EitherChurchT m e) => forall a. String -> EitherChurchT m e a
+$fMonadEitherChurchT_$cfail = \ (@ (m :: * -> *)) (@ e) _ (@ a29) (eta :: [Char]) -> error eta
+
+$fMonadEitherChurchT_$creturn :: forall (m :: * -> *) e. Applicative (EitherChurchT m e) => forall a. a -> EitherChurchT m e a
+$fMonadEitherChurchT_$creturn =
+  \ (@ (m :: * -> *)) (@ e) ($dApplicative :: Applicative (EitherChurchT m e)) (@ a29) -> pure $dApplicative
+
+$fMonadEitherChurchT_$c>>=
+  :: forall (m :: * -> *) e.
+     Applicative (EitherChurchT m e) =>
+     forall a b. EitherChurchT m e a -> (a -> EitherChurchT m e b) -> EitherChurchT m e b
+$fMonadEitherChurchT_$c>>= = $fMonadEitherChurchT3 `cast` ...
+
+Rec {
+$fMonadEitherChurchT_$c>>
+  :: forall (m :: * -> *) e.
+     Applicative (EitherChurchT m e) =>
+     forall a b. EitherChurchT m e a -> EitherChurchT m e b -> EitherChurchT m e b
+$fMonadEitherChurchT_$c>> =
+  \ (@ (m :: * -> *))
+    (@ e)
+    ($dApplicative :: Applicative (EitherChurchT m e))
+    (@ a29)
+    (@ b)
+    (eta :: EitherChurchT m e a29)
+    (eta1 :: EitherChurchT m e b) ->
+    >>= ($fMonadEitherChurchT $dApplicative) eta (\ _ -> eta1)
+
+$fMonadEitherChurchT :: forall (m :: * -> *) e. Applicative (EitherChurchT m e) => Monad (EitherChurchT m e)
+$fMonadEitherChurchT =
+  \ (@ (m :: * -> *)) (@ e) ($dApplicative :: Applicative (EitherChurchT m e)) ->
+    D:Monad $dApplicative ((lvl8) `cast` ...) ($fMonadEitherChurchT_$c>> $dApplicative) (\ (@ a29) -> pure $dApplicative) (lvl7)
+end Rec }
+
+$fMonadErroreEitherChurchT_$ccatchError
+  :: forall e (m :: * -> *).
+     Monad (EitherChurchT m e) =>
+     forall a. EitherChurchT m e a -> (e -> EitherChurchT m e a) -> EitherChurchT m e a
+$fMonadErroreEitherChurchT_$ccatchError = $fMonadErroreEitherChurchT1 `cast` ...
+
+$fMonadErroreEitherChurchT_$cthrowError :: forall e (m :: * -> *). Monad (EitherChurchT m e) => forall a. e -> EitherChurchT m e a
+$fMonadErroreEitherChurchT_$cthrowError = $fMonadErroreEitherChurchT3 `cast` ...
+
+$fMonadErroreEitherChurchT :: forall e (m :: * -> *). Monad (EitherChurchT m e) => MonadError e (EitherChurchT m e)
+$fMonadErroreEitherChurchT =
+  \ (@ e) (@ (m :: * -> *)) ($dMonad :: Monad (EitherChurchT m e)) -> D:MonadError $dMonad ((lvl6) `cast` ...) ((lvl5) `cast` ...)
+
+$fFunctorCodensity_$c<$ :: forall (m :: * -> *) a b. a -> Codensity m b -> Codensity m a
+$fFunctorCodensity_$c<$ = $fFunctorCodensity1 `cast` ...
+
+$fFunctorCodensity_$cfmap :: forall (m :: * -> *) a b. (a -> b) -> Codensity m a -> Codensity m b
+$fFunctorCodensity_$cfmap = $fFunctorCodensity2 `cast` ...
+
+$fFunctorCodensity :: forall (m :: * -> *). Functor (Codensity m)
+$fFunctorCodensity = \ (@ (m :: * -> *)) -> D:Functor (($fFunctorCodensity2) `cast` ...) (($fFunctorCodensity1) `cast` ...)
+
+$fApplicativeCodensity_$c<*
+  :: forall (m :: * -> *). Functor (Codensity m) => forall a b. Codensity m a -> Codensity m b -> Codensity m a
+$fApplicativeCodensity_$c<* =
+  \ (@ (m :: * -> *)) ($dFunctor :: Functor (Codensity m)) (@ a29) (@ b) (eta :: Codensity m a29) (eta1 :: Codensity m b) ->
+    let {
+      ds :: Codensity m (b -> a29)
+      ds = fmap $dFunctor (const) eta } in
+    (\ (@ r) (k :: a29 -> m r) -> (ds `cast` ...) (\ (h :: b -> a29) -> (eta1 `cast` ...) (\ (x :: b) -> k (h x)))) `cast` ...
+
+$fApplicativeCodensity_$c*>
+  :: forall (m :: * -> *). Functor (Codensity m) => forall a b. Codensity m a -> Codensity m b -> Codensity m b
+$fApplicativeCodensity_$c*> =
+  \ (@ (m :: * -> *)) ($dFunctor :: Functor (Codensity m)) (@ a29) (@ b) (eta :: Codensity m a29) (eta1 :: Codensity m b) ->
+    let {
+      ds :: Codensity m (b -> b)
+      ds = <$ $dFunctor (id) eta } in
+    (\ (@ r) (k :: b -> m r) -> (ds `cast` ...) (\ (h :: b -> b) -> (eta1 `cast` ...) (\ (x :: b) -> k (h x)))) `cast` ...
+
+$fApplicativeCodensity_$c<*>
+  :: forall (m :: * -> *). Functor (Codensity m) => forall a b. Codensity m (a -> b) -> Codensity m a -> Codensity m b
+$fApplicativeCodensity_$c<*> = $fApplicativeCodensity5 `cast` ...
+
+$fApplicativeCodensity_$cpure :: forall (m :: * -> *). Functor (Codensity m) => forall a. a -> Codensity m a
+$fApplicativeCodensity_$cpure = $fApplicativeCodensity6 `cast` ...
+
+$fApplicativeCodensity :: forall (m :: * -> *). Functor (Codensity m) => Applicative (Codensity m)
+$fApplicativeCodensity =
+  \ (@ (m :: * -> *)) ($dFunctor :: Functor (Codensity m)) ->
+    D:Applicative
+      $dFunctor
+      ((lvl4) `cast` ...)
+      (($fApplicativeCodensity5 $dFunctor) `cast` ...)
+      ($fApplicativeCodensity_$c*> $dFunctor)
+      ($fApplicativeCodensity_$c<* $dFunctor)
+
+$fMonadCodensity_$cfail :: forall (m :: * -> *). Applicative (Codensity m) => forall a. String -> Codensity m a
+$fMonadCodensity_$cfail = \ (@ (m :: * -> *)) _ (@ a29) (eta :: [Char]) -> error eta
+
+$fMonadCodensity_$creturn :: forall (m :: * -> *). Applicative (Codensity m) => forall a. a -> Codensity m a
+$fMonadCodensity_$creturn = \ (@ (m :: * -> *)) ($dApplicative :: Applicative (Codensity m)) (@ a29) -> pure $dApplicative
+
+$fMonadCodensity_$c>>=
+  :: forall (m :: * -> *). Applicative (Codensity m) => forall a b. Codensity m a -> (a -> Codensity m b) -> Codensity m b
+$fMonadCodensity_$c>>= = $fMonadCodensity3 `cast` ...
+
+Rec {
+$fMonadCodensity_$c>>
+  :: forall (m :: * -> *). Applicative (Codensity m) => forall a b. Codensity m a -> Codensity m b -> Codensity m b
+$fMonadCodensity_$c>> =
+  \ (@ (m :: * -> *)) ($dApplicative :: Applicative (Codensity m)) (@ a29) (@ b) (eta :: Codensity m a29) (eta1 :: Codensity m b) ->
+    >>= ($fMonadCodensity $dApplicative) eta (\ _ -> eta1)
+
+$fMonadCodensity :: forall (m :: * -> *). Applicative (Codensity m) => Monad (Codensity m)
+$fMonadCodensity =
+  \ (@ (m :: * -> *)) ($dApplicative :: Applicative (Codensity m)) ->
+    D:Monad $dApplicative ((lvl3) `cast` ...) ($fMonadCodensity_$c>> $dApplicative) (\ (@ a29) -> pure $dApplicative) (lvl2)
+end Rec }
+
+$fMonadErroreCodensity_$ccatchError
+  :: forall e.
+     Monad (Codensity (Either e)) =>
+     forall a. Codensity (Either e) a -> (e -> Codensity (Either e) a) -> Codensity (Either e) a
+$fMonadErroreCodensity_$ccatchError = $fMonadErroreCodensity1 `cast` ...
+
+$fMonadErroreCodensity_$cthrowError :: forall e. Monad (Codensity (Either e)) => forall a. e -> Codensity (Either e) a
+$fMonadErroreCodensity_$cthrowError = $fMonadErroreCodensity3 `cast` ...
+
+$fMonadErroreCodensity :: forall e. Monad (Codensity (Either e)) => MonadError e (Codensity (Either e))
+$fMonadErroreCodensity =
+  \ (@ e) ($dMonad :: Monad (Codensity (Either e))) ->
+    D:MonadError $dMonad ((lvl1) `cast` ...) (($fMonadErroreCodensity1 $dMonad) `cast` ...)
+
+Rec {
+$fNFDataTree_$crnf :: forall a. NFData a => Tree a -> ()
+$fNFDataTree_$crnf =
+  \ (@ a29) ($dNFData :: NFData a29) (eta :: Tree a29) ->
+    case eta of _ {
+      Leaf -> ();
+      Node x l r ->
+        case ($dNFData `cast` ...) x of _ { () -> case $fNFDataTree_$crnf $dNFData l of _ { () -> $fNFDataTree_$crnf $dNFData r } }
+    }
+end Rec }
+
+$fNFDataTree :: forall a. NFData a => NFData (Tree a)
+$fNFDataTree = $fNFDataTree_$crnf `cast` ...
+
+Rec {
+$fTraversableTree_$ctraverse :: forall a (f :: * -> *) b. Applicative f => (a -> f b) -> Tree a -> f (Tree b)
+$fTraversableTree_$ctraverse =
+  \ (@ a29) (@ (f :: * -> *)) (@ b) ($dApplicative :: Applicative f) (eta :: a29 -> f b) (eta1 :: Tree a29) ->
+    case eta1 of _ {
+      Leaf -> pure $dApplicative (Leaf);
+      Node a30 a31 a32 ->
+        <*>
+          $dApplicative
+          (<*> $dApplicative (fmap ($p1Applicative $dApplicative) (Node) (eta a30)) ($fTraversableTree_$ctraverse $dApplicative eta a31))
+          ($fTraversableTree_$ctraverse $dApplicative eta a32)
+    }
+end Rec }
+
+$fTraversableTree_$csequenceA :: forall (f :: * -> *) a. Applicative f => Tree (f a) -> f (Tree a)
+$fTraversableTree_$csequenceA =
+  \ (@ (f :: * -> *)) (@ a29) ($dApplicative :: Applicative f) -> $fTraversableTree_$ctraverse $dApplicative (id)
+
+$fTraversableTree_$cmapM :: forall a (m :: * -> *) b. Monad m => (a -> m b) -> Tree a -> m (Tree b)
+$fTraversableTree_$cmapM =
+  \ (@ a29) (@ (m :: * -> *)) (@ b) ($dMonad :: Monad m) (eta :: a29 -> m b) (eta1 :: Tree a29) ->
+    $fTraversableTree_$ctraverse ($p1Monad $dMonad) eta eta1
+
+$fTraversableTree_$csequence :: forall (m :: * -> *) a. Monad m => Tree (m a) -> m (Tree a)
+$fTraversableTree_$csequence =
+  \ (@ (m :: * -> *)) (@ a29) ($dMonad :: Monad m) (eta :: Tree (m a29)) -> $fTraversableTree_$ctraverse ($p1Monad $dMonad) (id) eta
+
+Rec {
+$fFoldableTree_$cfoldr :: forall a b. (a -> b -> b) -> b -> Tree a -> b
+$fFoldableTree_$cfoldr =
+  \ (@ a29) (@ b) (f :: a29 -> b -> b) (z :: b) (ds :: Tree a29) ->
+    case ds of _ {
+      Leaf -> z;
+      Node a30 a31 a32 -> f a30 ($fFoldableTree_$cfoldr f ($fFoldableTree_$cfoldr f z a32) a31)
+    }
+end Rec }
+
+$fFoldableTree_$cfoldl' :: forall b a. (b -> a -> b) -> b -> Tree a -> b
+$fFoldableTree_$cfoldl' =
+  \ (@ b) (@ a29) (f :: b -> a29 -> b) (z0 :: b) (xs :: Tree a29) ->
+    $fFoldableTree_$cfoldr (\ (x :: a29) (k :: b -> b) (z :: b) -> case f z x of vx { __DEFAULT -> k vx }) (id) xs z0
+
+$fFoldableTree_$cfoldr1 :: forall a. (a -> a -> a) -> Tree a -> a
+$fFoldableTree_$cfoldr1 =
+  \ (@ a29) (f :: a29 -> a29 -> a29) (xs :: Tree a29) ->
+    case $fFoldableTree_$cfoldr
+           (\ (x :: a29) (m :: Maybe a29) ->
+              Just
+                (case m of _ {
+                   Nothing -> x;
+                   Just y -> f x y
+                 }))
+           (Nothing)
+           xs
+    of _ {
+      Nothing -> $fFoldableTree11;
+      Just v -> v
+    }
+
+$fFoldableTree_$cnull :: forall a. Tree a -> Bool
+$fFoldableTree_$cnull = \ (@ a29) -> $fFoldableTree_$cfoldr ($fFoldableTree8) True
+
+$fFoldableTree_$clength :: forall a. Tree a -> Int
+$fFoldableTree_$clength = \ (@ a29) (xs :: Tree a29) -> $fFoldableTree_$cfoldr ($fFoldableTree7) (id) xs $fFoldableTree6
+
+assertSmallerThanExceptT :: Tree Int -> Int -> ExceptT String Identity Result
+assertSmallerThanExceptT =
+  \ (tree :: Tree Int) (mx :: Int) ->
+    let {
+      lvl27 :: [Char]
+      lvl27 =
+        unpackAppendCString#
+          " greater than "# (case mx of _ { I# ww3 -> case $wshowSignedInt 0 ww3 ([]) of _ { (# ww5, ww6 #) -> : ww5 ww6 } }) } in
+    $fFoldableTree_$cfoldr
+      ((\ (x :: Int) (eta1 :: ExceptT [Char] Identity ()) ->
+          case x of _ { I# x1 ->
+          case mx of _ { I# y ->
+          case tagToEnum# (<=# x1 y) of _ {
+            False ->
+              (Left (unpackAppendCString# "Value "# (case $wshowSignedInt 0 x1 ([]) of _ { (# ww5, ww6 #) -> ++ (: ww5 ww6) lvl27 }))) `cast` ...;
+            True -> eta1 `cast` ...
+          }
+          }
+          })
+       `cast` ...)
+      (assertSmallerThanExceptT1 `cast` ...)
+      tree
+
+assertSmallerThan_$sassertSmallerThan3 :: Tree Int -> Int -> ExceptT String Identity Result
+assertSmallerThan_$sassertSmallerThan3 = assertSmallerThanExceptT
+
+runSmallerThanExceptT :: Tree Int -> Int -> Either String Result
+runSmallerThanExceptT = assertSmallerThanExceptT `cast` ...
+
+assertSmallerThanEitherChurchT :: Tree Int -> Int -> EitherChurchT Identity String Result
+assertSmallerThanEitherChurchT =
+  \ (tree :: Tree Int) (mx :: Int) ->
+    let {
+      lvl27 :: [Char]
+      lvl27 =
+        unpackAppendCString#
+          " greater than "# (case mx of _ { I# ww3 -> case $wshowSignedInt 0 ww3 ([]) of _ { (# ww5, ww6 #) -> : ww5 ww6 } }) } in
+    $fFoldableTree_$cfoldr
+      (\ (x :: Int) (eta :: EitherChurchT Identity [Char] ()) ->
+         let {
+           eta1 :: EitherChurchT Identity [Char] ()
+           eta1 =
+             case x of _ { I# x1 ->
+             case mx of _ { I# y ->
+             case tagToEnum# (<=# x1 y) of _ {
+               False ->
+                 let {
+                   e :: [Char]
+                   e = unpackAppendCString# "Value "# (case $wshowSignedInt 0 x1 ([]) of _ { (# ww5, ww6 #) -> ++ (: ww5 ww6) lvl27 }) } in
+                 (\ (@ r) (ek :: [Char] -> Identity r) _ -> ek e) `cast` ...;
+               True -> assertSmallerThanEitherChurchT1 `cast` ...
+             }
+             }
+             } } in
+         (\ (@ r) (eta2 :: [Char] -> Identity r) (eta3 :: () -> Identity r) ->
+            let {
+              lvl28 :: Identity r
+              lvl28 = (eta `cast` ...) eta2 (\ (x1 :: ()) -> eta3 x1) } in
+            (eta1 `cast` ...) eta2 (\ _ -> lvl28))
+         `cast` ...)
+      (assertSmallerThanEitherChurchT1 `cast` ...)
+      tree
+
+assertSmallerThan_$sassertSmallerThan1 :: Tree Int -> Int -> EitherChurchT Identity String Result
+assertSmallerThan_$sassertSmallerThan1 = assertSmallerThanEitherChurchT
+
+runSmallerThanEitherChurchT1 :: Tree Int -> Int -> Identity (Either String Result)
+runSmallerThanEitherChurchT1 =
+  \ (tree :: Tree Int) (n :: Int) -> ((assertSmallerThanEitherChurchT tree n) `cast` ...) ((Left) `cast` ...) ((Right) `cast` ...)
+
+runSmallerThanEitherChurchT :: Tree Int -> Int -> Either String Result
+runSmallerThanEitherChurchT = runSmallerThanEitherChurchT1 `cast` ...
+
+assertSmallerThanEitherChurch :: Tree Int -> Int -> EitherChurch String Result
+assertSmallerThanEitherChurch =
+  \ (tree :: Tree Int) (mx :: Int) ->
+    let {
+      lvl27 :: [Char]
+      lvl27 =
+        unpackAppendCString#
+          " greater than "# (case mx of _ { I# ww3 -> case $wshowSignedInt 0 ww3 ([]) of _ { (# ww5, ww6 #) -> : ww5 ww6 } }) } in
+    $fFoldableTree_$cfoldr
+      (\ (x :: Int) (eta :: EitherChurch [Char] ()) ->
+         let {
+           eta1 :: EitherChurch [Char] ()
+           eta1 =
+             case x of _ { I# x1 ->
+             case mx of _ { I# y ->
+             case tagToEnum# (<=# x1 y) of _ {
+               False ->
+                 let {
+                   e :: [Char]
+                   e = unpackAppendCString# "Value "# (case $wshowSignedInt 0 x1 ([]) of _ { (# ww5, ww6 #) -> ++ (: ww5 ww6) lvl27 }) } in
+                 (\ (@ r) (ek :: [Char] -> r) _ -> ek e) `cast` ...;
+               True -> assertSmallerThanEitherChurch1 `cast` ...
+             }
+             }
+             } } in
+         (\ (@ r) (eta2 :: [Char] -> r) (eta3 :: () -> r) ->
+            let {
+              lvl28 :: r
+              lvl28 = (eta `cast` ...) eta2 (\ (x1 :: ()) -> eta3 x1) } in
+            (eta1 `cast` ...) eta2 (\ _ -> lvl28))
+         `cast` ...)
+      (assertSmallerThanEitherChurch1 `cast` ...)
+      tree
+
+assertSmallerThan_$sassertSmallerThan2 :: Tree Int -> Int -> EitherChurch String Result
+assertSmallerThan_$sassertSmallerThan2 = assertSmallerThanEitherChurch
+
+runSmallerThanEitherChurch :: Tree Int -> Int -> Either String Result
+runSmallerThanEitherChurch = \ (tree :: Tree Int) (n :: Int) -> ((assertSmallerThanEitherChurch tree n) `cast` ...) (Left) (Right)
+
+assertSmallerThanEither :: Tree Int -> Int -> Either String Result
+assertSmallerThanEither =
+  \ (tree :: Tree Int) (mx :: Int) ->
+    let {
+      lvl27 :: [Char]
+      lvl27 =
+        unpackAppendCString#
+          " greater than "# (case mx of _ { I# ww3 -> case $wshowSignedInt 0 ww3 ([]) of _ { (# ww5, ww6 #) -> : ww5 ww6 } }) } in
+    $fFoldableTree_$cfoldr
+      (\ (x :: Int) (eta1 :: Either [Char] ()) ->
+         case x of _ { I# x1 ->
+         case mx of _ { I# y ->
+         case tagToEnum# (<=# x1 y) of _ {
+           False -> Left (unpackAppendCString# "Value "# (case $wshowSignedInt 0 x1 ([]) of _ { (# ww5, ww6 #) -> ++ (: ww5 ww6) lvl27 }));
+           True -> eta1
+         }
+         }
+         })
+      assertSmallerThanExceptT1
+      tree
+
+assertSmallerThan_$sassertSmallerThan4 :: Tree Int -> Int -> Either String Result
+assertSmallerThan_$sassertSmallerThan4 = assertSmallerThanEither
+
+assertSmallerThanCodensity :: Tree Int -> Int -> Codensity (Either String) Result
+assertSmallerThanCodensity =
+  \ (tree :: Tree Int) (mx :: Int) ->
+    let {
+      lvl27 :: [Char]
+      lvl27 =
+        unpackAppendCString#
+          " greater than "# (case mx of _ { I# ww3 -> case $wshowSignedInt 0 ww3 ([]) of _ { (# ww5, ww6 #) -> : ww5 ww6 } }) } in
+    $fFoldableTree_$cfoldr
+      (\ (x :: Int) (eta :: Codensity (Either [Char]) ()) ->
+         let {
+           eta1 :: Codensity (Either [Char]) ()
+           eta1 =
+             case x of _ { I# x1 ->
+             case mx of _ { I# y ->
+             case tagToEnum# (<=# x1 y) of _ {
+               False ->
+                 let {
+                   e :: [Char]
+                   e = unpackAppendCString# "Value "# (case $wshowSignedInt 0 x1 ([]) of _ { (# ww5, ww6 #) -> ++ (: ww5 ww6) lvl27 }) } in
+                 let {
+                   lvl28 :: forall r. Either [Char] r
+                   lvl28 = \ (@ r) -> Left e } in
+                 (\ (@ r) _ -> lvl28) `cast` ...;
+               True -> assertSmallerThanCodensity1 `cast` ...
+             }
+             }
+             } } in
+         (\ (@ r) (eta2 :: () -> Either [Char] r) ->
+            let {
+              lvl28 :: Either [Char] r
+              lvl28 = (eta `cast` ...) (\ (x1 :: ()) -> eta2 x1) } in
+            (eta1 `cast` ...) (\ _ -> lvl28))
+         `cast` ...)
+      (assertSmallerThanCodensity1 `cast` ...)
+      tree
+
+assertSmallerThan_$sassertSmallerThan :: Tree Int -> Int -> Codensity (Either String) Result
+assertSmallerThan_$sassertSmallerThan = assertSmallerThanCodensity
+
+runSmallerThanCodensity :: Tree Int -> Int -> Either String Result
+runSmallerThanCodensity = \ (tree :: Tree Int) (n :: Int) -> ((assertSmallerThanCodensity tree n) `cast` ...) (Right)
+
+assertSmallerThan :: forall (m :: * -> *). MonadError String m => Tree Int -> Int -> m Result
+assertSmallerThan =
+  \ (@ (m :: * -> *)) ($dMonadError :: MonadError String m) (eta :: Tree Int) (eta1 :: Int) ->
+    let {
+      lvl27 :: [Char] -> m ()
+      lvl27 = throwError $dMonadError } in
+    let {
+      lvl28 :: [Char]
+      lvl28 =
+        unpackAppendCString#
+          " greater than "# (case eta1 of _ { I# ww3 -> case $wshowSignedInt 0 ww3 ([]) of _ { (# ww5, ww6 #) -> : ww5 ww6 } }) } in
+    let {
+      a29 :: Monad m
+      a29 = $p1MonadError $dMonadError } in
+    let {
+      $dApplicative :: Applicative m
+      $dApplicative = $p1Monad a29 } in
+    let {
+      lvl29 :: m ()
+      lvl29 = pure $dApplicative () } in
+    $fFoldableTree_$cfoldr
+      (let {
+         f2 :: m () -> m () -> m ()
+         f2 = *> $dApplicative } in
+       \ (x :: Int) ->
+         f2
+           (case x of _ { I# x1 ->
+            case eta1 of _ { I# y ->
+            case tagToEnum# (<=# x1 y) of _ {
+              False -> lvl27 (unpackAppendCString# "Value "# (case $wshowSignedInt 0 x1 ([]) of _ { (# ww5, ww6 #) -> ++ (: ww5 ww6) lvl28 }));
+              True -> lvl29
+            }
+            }
+            }))
+      lvl29
+      eta
+
+Rec {
+$fFoldableTree_$cfoldMap :: forall a m. Monoid m => (a -> m) -> Tree a -> m
+$fFoldableTree_$cfoldMap =
+  \ (@ a29) (@ m) ($dMonoid :: Monoid m) (f :: a29 -> m) (ds :: Tree a29) ->
+    case ds of _ {
+      Leaf -> mempty $dMonoid;
+      Node a30 a31 a32 ->
+        mappend $dMonoid (f a30) (mappend $dMonoid ($fFoldableTree_$cfoldMap $dMonoid f a31) ($fFoldableTree_$cfoldMap $dMonoid f a32))
+    }
+end Rec }
+
+$fFoldableTree_$cfoldr' :: forall a b. (a -> b -> b) -> b -> Tree a -> b
+$fFoldableTree_$cfoldr' =
+  \ (@ a29) (@ b) (f :: a29 -> b -> b) (z0 :: b) (xs :: Tree a29) ->
+    (($fFoldableTree_$cfoldMap
+        ($fFoldableTree10) ((\ (x :: a29) (eta :: b -> b) (z :: b) -> case f x z of vx { __DEFAULT -> eta vx }) `cast` ...) xs)
+     `cast` ...)
+      (id) z0
+
+$fFoldableTree_$cfoldl :: forall b a. (b -> a -> b) -> b -> Tree a -> b
+$fFoldableTree_$cfoldl =
+  \ (@ b) (@ a29) (f :: b -> a29 -> b) (z :: b) (t1 :: Tree a29) ->
+    (($fFoldableTree_$cfoldMap ($fFoldableTree10) ((\ (x :: a29) (eta :: b) -> f eta x) `cast` ...) t1) `cast` ...) z
+
+$fFoldableTree_$cfoldl1 :: forall a. (a -> a -> a) -> Tree a -> a
+$fFoldableTree_$cfoldl1 =
+  \ (@ a29) (f :: a29 -> a29 -> a29) (xs :: Tree a29) ->
+    case (($fFoldableTree_$cfoldMap
+             ($fFoldableTree10)
+             ((\ (x :: a29) (eta :: Maybe a29) ->
+                 Just
+                   (case eta of _ {
+                      Nothing -> x;
+                      Just x1 -> f x1 x
+                    }))
+              `cast` ...)
+             xs)
+          `cast` ...)
+           (Nothing)
+    of _ {
+      Nothing -> $fFoldableTree9;
+      Just v -> v
+    }
+
+$fFoldableTree_$cmaximum :: forall a. Ord a => Tree a -> a
+$fFoldableTree_$cmaximum =
+  \ (@ a29) ($dOrd :: Ord a29) ->
+    let {
+      a30 :: Monoid (Max a29)
+      a30 = $fMonoidMax $dOrd } in
+    \ (x :: Tree a29) ->
+      case ($fFoldableTree_$cfoldMap a30 ((Just) `cast` ...) x) `cast` ... of _ {
+        Nothing -> $fFoldableTree4;
+        Just v -> v
+      }
+
+$fFoldableTree_$cminimum :: forall a. Ord a => Tree a -> a
+$fFoldableTree_$cminimum =
+  \ (@ a29) ($dOrd :: Ord a29) ->
+    let {
+      a30 :: Monoid (Min a29)
+      a30 = $fMonoidMin $dOrd } in
+    \ (x :: Tree a29) ->
+      case ($fFoldableTree_$cfoldMap a30 ((Just) `cast` ...) x) `cast` ... of _ {
+        Nothing -> $fFoldableTree3;
+        Just v -> v
+      }
+
+$fFoldableTree_$s$dmfold :: forall m. Monoid m => Tree m -> m
+$fFoldableTree_$s$dmfold = \ (@ m) ($dMonoid :: Monoid m) -> $fFoldableTree_$cfoldMap $dMonoid (id)
+
+$fFoldableTree1 :: forall a3. Num a3 => Tree a3 -> Product a3
+$fFoldableTree1 = \ (@ a29) ($dNum :: Num a29) -> $fFoldableTree_$cfoldMap ($fMonoidProduct $dNum) ((lvl) `cast` ...)
+
+$fFoldableTree_$cproduct :: forall a. Num a => Tree a -> a
+$fFoldableTree_$cproduct = $fFoldableTree1 `cast` ...
+
+$fFoldableTree2 :: forall a3. Num a3 => Tree a3 -> Sum a3
+$fFoldableTree2 = \ (@ a29) ($dNum :: Num a29) -> $fFoldableTree_$cfoldMap ($fMonoidSum $dNum) ((lvl) `cast` ...)
+
+$fFoldableTree_$csum :: forall a. Num a => Tree a -> a
+$fFoldableTree_$csum = $fFoldableTree2 `cast` ...
+
+$fFoldableTree5 :: forall a3. Eq a3 => a3 -> Tree a3 -> Any
+$fFoldableTree5 = \ (@ a29) ($dEq :: Eq a29) (eta :: a29) -> $fFoldableTree_$cfoldMap $fMonoidAny ((== $dEq eta) `cast` ...)
+
+$fFoldableTree_$celem :: forall a. Eq a => a -> Tree a -> Bool
+$fFoldableTree_$celem = $fFoldableTree5 `cast` ...
+
+a28 :: forall m. Monoid m => Tree m -> m
+a28 = \ (@ m) ($dMonoid :: Monoid m) (eta :: Tree m) -> $fFoldableTree_$cfoldMap $dMonoid (id) eta
+
+Rec {
+$fFoldableTree_$ctoList :: forall a. Tree a -> [a]
+$fFoldableTree_$ctoList = \ (@ a29) (eta :: Tree a29) -> foldr $fFoldableTree (:) ([]) eta
+
+$fFoldableTree :: Foldable Tree
+$fFoldableTree =
+  D:Foldable
+    a28
+    $fFoldableTree_$cfoldMap
+    $fFoldableTree_$cfoldr
+    $fFoldableTree_$cfoldr'
+    $fFoldableTree_$cfoldl
+    $fFoldableTree_$cfoldl'
+    $fFoldableTree_$cfoldr1
+    $fFoldableTree_$cfoldl1
+    $fFoldableTree_$ctoList
+    $fFoldableTree_$cnull
+    $fFoldableTree_$clength
+    ($fFoldableTree5 `cast` ...)
+    $fFoldableTree_$cmaximum
+    $fFoldableTree_$cminimum
+    ($fFoldableTree2 `cast` ...)
+    ($fFoldableTree1 `cast` ...)
+end Rec }
+
+Rec {
+$fFunctorTree_$cfmap :: forall a b. (a -> b) -> Tree a -> Tree b
+$fFunctorTree_$cfmap =
+  \ (@ a29) (@ b) (f :: a29 -> b) (ds :: Tree a29) ->
+    case ds of _ {
+      Leaf -> Leaf;
+      Node a30 a31 a32 -> Node (f a30) ($fFunctorTree_$cfmap f a31) ($fFunctorTree_$cfmap f a32)
+    }
+end Rec }
+
+$fFunctorTree_$c<$ :: forall a b. a -> Tree b -> Tree a
+$fFunctorTree_$c<$ = \ (@ a29) (@ b) (eta :: a29) (eta1 :: Tree b) -> $fFunctorTree_$cfmap (\ _ -> eta) eta1
+
+$fFunctorTree :: Functor Tree
+$fFunctorTree = D:Functor $fFunctorTree_$cfmap $fFunctorTree_$c<$
+
+$fTraversableTree :: Traversable Tree
+$fTraversableTree =
+  D:Traversable
+    $fFunctorTree
+    $fFoldableTree
+    $fTraversableTree_$ctraverse
+    $fTraversableTree_$csequenceA
+    $fTraversableTree_$cmapM
+    $fTraversableTree_$csequence
+
+main_treeSize :: Int
+main_treeSize = case main9 `cast` ... of _ { (tree, treeSize) -> treeSize }
+
+main42 :: [Char]
+main42 = case main_treeSize of _ { I# ww3 -> case $wshowSignedInt 0 ww3 ([]) of _ { (# ww5, ww6 #) -> : ww5 ww6 } }
+
+main41 :: [Char]
+main41 = unpackAppendCString# "treeSize = "# main42
+
+main_tree :: Tree Int
+main_tree = case main9 `cast` ... of _ { (tree, treeSize) -> tree }
+
+main39 :: [Char]
+main39 =
+  case assertSmallerThanEither main_tree main_treeSize of _ {
+    Left b1 -> ++ $fShowEither3 (: shows6 (showLitString b1 main27));
+    Right b1 -> ++ $fShowEither2 (case b1 of _ { () -> shows1 })
+  }
+
+main38 :: [Char]
+main38 = unpackAppendCString# ": "# main39
+
+main37 :: [Char]
+main37 = unpackAppendCString# "assertSmallerThanEither"# main38
+
+main36 :: [Char]
+main36 =
+  case (assertSmallerThanExceptT main_tree main_treeSize) `cast` ... of _ {
+    Left b1 -> ++ $fShowEither3 (: shows6 (showLitString b1 main27));
+    Right b1 -> ++ $fShowEither2 (case b1 of _ { () -> shows1 })
+  }
+
+main35 :: [Char]
+main35 = unpackAppendCString# ": "# main36
+
+main34 :: [Char]
+main34 = unpackAppendCString# "runSmallerThanExceptT"# main35
+
+main33 :: [Char]
+main33 =
+  case ((assertSmallerThanEitherChurch main_tree main_treeSize) `cast` ...) (Left) (Right) of _ {
+    Left b1 -> ++ $fShowEither3 (: shows6 (showLitString b1 main27));
+    Right b1 -> ++ $fShowEither2 (case b1 of _ { () -> shows1 })
+  }
+
+main32 :: [Char]
+main32 = unpackAppendCString# ": "# main33
+
+main31 :: [Char]
+main31 = unpackAppendCString# "runSmallerThanEitherChurch"# main32
+
+main30 :: [Char]
+main30 =
+  case (((assertSmallerThanEitherChurchT main_tree main_treeSize) `cast` ...) ((Left) `cast` ...) ((Right) `cast` ...)) `cast` ...
+  of _ {
+    Left b1 -> ++ $fShowEither3 (: shows6 (showLitString b1 main27));
+    Right b1 -> ++ $fShowEither2 (case b1 of _ { () -> shows1 })
+  }
+
+main29 :: [Char]
+main29 = unpackAppendCString# ": "# main30
+
+main28 :: [Char]
+main28 = unpackAppendCString# "runSmallerThanEitherChurchT"# main29
+
+main26 :: [Char]
+main26 =
+  case ((assertSmallerThanCodensity main_tree main_treeSize) `cast` ...) (Right) of _ {
+    Left b1 -> ++ $fShowEither3 (: shows6 (showLitString b1 main27));
+    Right b1 -> ++ $fShowEither2 (case b1 of _ { () -> shows1 })
+  }
+
+main25 :: [Char]
+main25 = unpackAppendCString# ": "# main26
+
+main24 :: [Char]
+main24 = unpackAppendCString# "runSmallerThanCodensity"# main25
+
+Rec {
+main_$s$wa4 :: Int -> Int# -> State# RealWorld -> (# State# RealWorld, () #)
+main_$s$wa4 =
+  \ (sc :: Int) (sc1 :: Int#) (sc2 :: State# RealWorld) ->
+    case tagToEnum# (<=# sc1 0) of _ {
+      False -> case seq# (assertSmallerThanEither main_tree sc) sc2 of _ { (# ipv, ipv1 #) -> main_$s$wa4 sc (-# sc1 1) ipv };
+      True -> (# sc2, () #)
+    }
+end Rec }
+
+main21 :: Int64 -> State# RealWorld -> (# State# RealWorld, () #)
+main21 = \ (w :: Int64) (w1 :: State# RealWorld) -> case w of _ { I64# ww1 -> main_$s$wa4 main_treeSize ww1 w1 }
+
+main20 :: Benchmark
+main20 = Benchmark main22 (main21 `cast` ...)
+
+Rec {
+main_$s$wa3 :: Int -> Int# -> State# RealWorld -> (# State# RealWorld, () #)
+main_$s$wa3 =
+  \ (sc :: Int) (sc1 :: Int#) (sc2 :: State# RealWorld) ->
+    case tagToEnum# (<=# sc1 0) of _ {
+      False -> case seq# (assertSmallerThanExceptT main_tree sc) sc2 of _ { (# ipv, ipv1 #) -> main_$s$wa3 sc (-# sc1 1) ipv };
+      True -> (# sc2, () #)
+    }
+end Rec }
+
+main18 :: Int64 -> State# RealWorld -> (# State# RealWorld, () #)
+main18 = \ (w :: Int64) (w1 :: State# RealWorld) -> case w of _ { I64# ww1 -> main_$s$wa3 main_treeSize ww1 w1 }
+
+main17 :: Benchmark
+main17 = Benchmark main19 (main18 `cast` ...)
+
+Rec {
+main_$s$wa2 :: Int -> Int# -> State# RealWorld -> (# State# RealWorld, () #)
+main_$s$wa2 =
+  \ (sc :: Int) (sc1 :: Int#) (sc2 :: State# RealWorld) ->
+    case tagToEnum# (<=# sc1 0) of _ {
+      False ->
+        case seq# (((assertSmallerThanEitherChurch main_tree sc) `cast` ...) (Left) (Right)) sc2 of _ { (# ipv, ipv1 #) ->
+        main_$s$wa2 sc (-# sc1 1) ipv
+        };
+      True -> (# sc2, () #)
+    }
+end Rec }
+
+main15 :: Int64 -> State# RealWorld -> (# State# RealWorld, () #)
+main15 = \ (w :: Int64) (w1 :: State# RealWorld) -> case w of _ { I64# ww1 -> main_$s$wa2 main_treeSize ww1 w1 }
+
+main14 :: Benchmark
+main14 = Benchmark main16 (main15 `cast` ...)
+
+Rec {
+main_$s$wa1
+  :: (Int -> Identity (Either [Char] ())) ~R# (Int -> Either [Char] ())
+     -> Int -> Int# -> State# RealWorld -> (# State# RealWorld, () #)
+main_$s$wa1 =
+  \ (sg :: (Int -> Identity (Either [Char] ())) ~R# (Int -> Either [Char] ())) (sc :: Int) (sc1 :: Int#) (sc2 :: State# RealWorld) ->
+    case tagToEnum# (<=# sc1 0) of _ {
+      False ->
+        case seq# ((((assertSmallerThanEitherChurchT main_tree sc) `cast` ...) ((Left) `cast` ...) ((Right) `cast` ...)) `cast` ...) sc2
+        of _ { (# ipv, ipv1 #) ->
+        main_$s$wa1 @~ sg sc (-# sc1 1) ipv
+        };
+      True -> (# sc2, () #)
+    }
+end Rec }
+
+main12 :: Int64 -> State# RealWorld -> (# State# RealWorld, () #)
+main12 =
+  \ (w :: Int64) (w1 :: State# RealWorld) ->
+    case w of _ { I64# ww1 -> main_$s$wa1 @~ (<Int>_R -> NTCo:Identity[0] <Either String Result>_R) main_treeSize ww1 w1 }
+
+main11 :: Benchmark
+main11 = Benchmark main13 (main12 `cast` ...)
+
+Rec {
+main_$s$wa :: Int -> Int# -> State# RealWorld -> (# State# RealWorld, () #)
+main_$s$wa =
+  \ (sc :: Int) (sc1 :: Int#) (sc2 :: State# RealWorld) ->
+    case tagToEnum# (<=# sc1 0) of _ {
+      False ->
+        case seq# (((assertSmallerThanCodensity main_tree sc) `cast` ...) (Right)) sc2 of _ { (# ipv, ipv1 #) ->
+        main_$s$wa sc (-# sc1 1) ipv
+        };
+      True -> (# sc2, () #)
+    }
+end Rec }
+
+main8 :: Int64 -> State# RealWorld -> (# State# RealWorld, () #)
+main8 = \ (w :: Int64) (w1 :: State# RealWorld) -> case w of _ { I64# ww1 -> main_$s$wa main_treeSize ww1 w1 }
+
+main7 :: Benchmark
+main7 = Benchmark main10 (main8 `cast` ...)
+
+main6 :: [Benchmark]
+main6 = : main7 ([])
+
+main5 :: [Benchmark]
+main5 = : main11 main6
+
+main4 :: [Benchmark]
+main4 = : main14 main5
+
+main3 :: [Benchmark]
+main3 = : main17 main4
+
+main2 :: [Benchmark]
+main2 = : main20 main3
+
+main1 :: State# RealWorld -> (# State# RealWorld, () #)
+main1 =
+  \ (s :: State# RealWorld) ->
+    case catch# getTemporaryDirectory4 getTemporaryDirectory2 s of _ { (# ipv, ipv1 #) ->
+    case hPutStr2 stdout main41 True ipv of _ { (# ipv2, ipv3 #) ->
+    case hPutStr2 stdout main40 True ipv2 of _ { (# ipv4, ipv5 #) ->
+    case hPutStr2 stdout main37 True ipv4 of _ { (# ipv6, ipv7 #) ->
+    case hPutStr2 stdout main34 True ipv6 of _ { (# ipv8, ipv9 #) ->
+    case hPutStr2 stdout main31 True ipv8 of _ { (# ipv10, ipv11 #) ->
+    case hPutStr2 stdout main28 True ipv10 of _ { (# ipv12, ipv13 #) ->
+    case hPutStr2 stdout main24 True ipv12 of _ { (# ipv14, ipv15 #) ->
+    defaultMain2
+      (Config
+         defaultConfig4 True defaultConfig3 makeConfig2 ([]) (Nothing) (Just (combine ipv1 main23)) (Nothing) (Nothing) Normal defaultConfig1)
+      main2
+      ipv14
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+    }
+
+main :: IO ()
+main = main1 `cast` ...
+
+main43 :: State# RealWorld -> (# State# RealWorld, () #)
+main43 = runMainIO1 (main1 `cast` ...)
+
+main :: IO ()
+main = main43 `cast` ...
+
+
+------ Local rules for imported ids --------
+"SC:$wa0" [0] forall (sc :: Int#) (sc1 :: Int#). $wa sc (I# sc1) = fibTree_$s$wa sc sc1
+"SPEC assertSmallerThan" [ALWAYS]
+    forall ($dMonadError :: MonadError String (Either String)). assertSmallerThan $dMonadError = assertSmallerThan_$sassertSmallerThan4
+"SPEC assertSmallerThan" [ALWAYS]
+    forall ($dMonadError :: MonadError String (ExceptT String Identity)).
+      assertSmallerThan $dMonadError
+      = assertSmallerThan_$sassertSmallerThan3
+"SPEC assertSmallerThan" [ALWAYS]
+    forall ($dMonadError :: MonadError String (EitherChurch String)).
+      assertSmallerThan $dMonadError
+      = assertSmallerThan_$sassertSmallerThan2
+"SPEC assertSmallerThan" [ALWAYS]
+    forall ($dMonadError :: MonadError String (EitherChurchT Identity String)).
+      assertSmallerThan $dMonadError
+      = assertSmallerThan_$sassertSmallerThan1
+"SPEC assertSmallerThan" [ALWAYS]
+    forall ($dMonadError :: MonadError String (Codensity (Either String))).
+      assertSmallerThan $dMonadError
+      = assertSmallerThan_$sassertSmallerThan
+"SPEC/Main $dmfold @ Tree" [ALWAYS] forall ($dFoldable :: Foldable Tree). $dmfold $dFoldable = $fFoldableTree_$s$dmfold
+

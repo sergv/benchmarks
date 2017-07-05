@@ -21,8 +21,9 @@ import Criterion.Types
 makeConfig :: FilePath -> IO Config
 makeConfig reportOutFile = do
   tmpDir <- getTemporaryDirectory
-  return $ defaultConfig { forceGC    = True
-                         , reportFile = Just $ tmpDir </> reportOutFile
-                         , resamples  = 10000
-                         }
+  return $ defaultConfig
+    { forceGC    = True
+    , reportFile = Just $ tmpDir </> reportOutFile
+    , resamples  = 10000
+    }
 
